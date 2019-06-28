@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Blog</h2>
+<div class="col-lg-8 col-md-10 mx-auto">
+  {% for post in db.posts %}
+    <div class="post-preview">
+      <a href="{{ post.href_name }}">
+        <h2 class="post-title">
+          {{ post.title }}
+        </h2>
+        {% if post.intro %}
+        <h3 class="post-subtitle">
+          {{ post.intro }}
+        </h3>
+        {% endif %}
+      </a>
+      <p class="post-meta">Posted by
+        <a href="#">{{ post.author }}</a>
+        on {{ post.date }}</p>
+    </div>
+    <hr>
+  {% endfor %}
+</div>
+{% endblock %}

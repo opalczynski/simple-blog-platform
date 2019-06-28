@@ -1,0 +1,10 @@
+version: '3.4'
+services:
+  blog:
+    build:
+      context: .
+      target: application
+    ports:
+      - "8031:8031"
+    volumes:
+      - .:/app/
