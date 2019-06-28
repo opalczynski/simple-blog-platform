@@ -52,3 +52,10 @@ Same story with `favicon.ico` -> pyt there whatever you like.
 To add image to your posts - add them under `static/img/posts` (you can organize this on your own);
 
 There's an example of how to do it in `sample-post.md`.
+
+## Others
+
+I am using free [Clean Blog template](https://startbootstrap.com/themes/clean-blog/) Great work guys!
+
+Somebody asked me: Why no markdown -> html conversion and server statics instead?
+Well - IT IS NO FUN. 
