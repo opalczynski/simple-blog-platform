@@ -25,15 +25,22 @@ BLOG_SETTINGS = {
 @jinja.template('index.html')
 async def index(request):
     return {
-        'db': json_database.posts,
+        'db': json_database.posts['posts'],
         'settings': BLOG_SETTINGS
     }
 
 
-@app.route('/<fpath>')
+@app.route('/<year:int>/<month:int>/<day:int>/<slug>/')
 @jinja.template('post.html')
-async def post(request, fpath):
-    content = content_cache.get(fpath)
+async def post(request, year, month, day, slug):
+    content = content_cache.get(slug)
+    try:
+        post = [post for post in json_database.posts['posts'] if post['slug'] == slug][0]
+        print(post['date'], f"{year}/{month}/{day}")
+        if post['date'] != f"{year:04d}/{month:02d}/{day:02d}":
+            content = '<h3>Not Found. I am sorry.</h3>'
+    except IndexError:
+        content = '<h3>Not Found. I am sorry.</h3>'
     return {
         'post': content,
         'settings': BLOG_SETTINGS

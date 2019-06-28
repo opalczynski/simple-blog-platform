@@ -2,8 +2,9 @@
   "posts": [
     {
       "title":  "This is sample post.",
-      "href_name": "sample-post.html",
-      "date": "28-06-2019 15:43",
+      "slug": "sample-post",
+      "date": "2019/06/28",
+      "time": "15:43",
       "author": "John Watch",
       "intro": "And this is sample post intro"
     }

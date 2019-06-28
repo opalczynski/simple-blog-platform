@@ -22,6 +22,6 @@ Rly nice page.
 
 And this is how you manage images and files:
 
-![This is sample image](static/img/posts/sample_image.jpg)
+![This is sample image](/static/img/posts/sample_image.jpg)
 
 Thanks to kindness of pexels.com: [Photo by Fancycrave.com from Pexels](https://www.pexels.com/@fancycrave?utm_content=attributionCopyText&utm_medium=referral&utm_source=pexels)
