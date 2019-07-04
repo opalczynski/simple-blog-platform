@@ -1,7 +1,9 @@
 {% extends 'base.html' %}
 
+{% block header %}
+<link rel="stylesheet" href="/static/vendor/highlight/default.css">
+{% endblock %}
+
 {% block content %}
-<div class="col-lg-8 col-md-10 mx-auto">
   {{ post }}
-</div>
 {% endblock %}

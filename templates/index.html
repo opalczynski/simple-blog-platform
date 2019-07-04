@@ -1,7 +1,5 @@
 {% extends 'base.html' %}
 {% block content %}
-<h2>Blog</h2>
-<div class="col-lg-8 col-md-10 mx-auto">
   {% for post in db %}
     <div class="post-preview">
       <a href="{{ post.date }}/{{ post.slug }}">
@@ -20,5 +18,4 @@
     </div>
     <hr>
   {% endfor %}
-</div>
 {% endblock %}

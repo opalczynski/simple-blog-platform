@@ -1,0 +1,12 @@
+{
+  "posts": [
+    {
+      "title": "Sample Post",
+      "slug": "sample-post",
+      "date": "2019/07/04",
+      "time": "15:49",
+      "author": "Some Test",
+      "intro": "And this is intro/subtitle"
+    }
+  ]
+}

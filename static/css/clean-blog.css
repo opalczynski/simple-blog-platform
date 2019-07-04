@@ -4,6 +4,10 @@
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-clean-blog/blob/master/LICENSE)
  */
 
+font-face {
+  font-display: auto;
+}
+
 body {
   font-size: 20px;
   color: #212529;
@@ -42,6 +46,8 @@ a:focus, a:hover {
 blockquote {
   font-style: italic;
   color: #868e96;
+  border-left: 1px #868e96 solid;
+  padding-left: 1em;
 }
 
 .section-heading {
@@ -86,6 +92,10 @@ img::selection {
 img::-moz-selection {
   color: #fff;
   background: transparent;
+}
+
+img {
+  width: 100%;
 }
 
 #mainNav {
@@ -417,4 +427,35 @@ footer .copyright {
 .btn-lg {
   font-size: 16px;
   padding: 25px 35px;
+}
+
+table {
+  width: 95%;
+  margin: 1em auto;
+  border: 0.5px solid black;
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 0.5px solid black;
+  padding: 15px;
+  text-align: left;
+}
+
+th {
+  background-color: #c5c5c5;
+}
+
+tr:hover {background-color: #f5f5f5;}
+
+.about-img{
+  width: 350px;
+  border-radius: 50%;
+  margin: auto;
+  display: block;
+}
+
+.about-name{
+  text-align: center;
+  margin-top: 2em;
 }

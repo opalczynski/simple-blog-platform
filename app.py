@@ -1,24 +1,28 @@
+import os
+
 from sanic import Sanic
 from sanic_jinja2 import SanicJinja2
 
-from content_cache import content_cache
-from jsondb import json_database
+from config.base import BASE_DIR, BLOG_SETTINGS
+from blog.content_cache import content_cache
+from blog.jsondb import json_database
 
-app = Sanic(__name__)
+
+def create_app(**kwargs):
+    return Sanic(__name__)
+
+
+app = create_app()
 
 # Serves files from the static folder to the URL /static
-app.static('/static', './static')
-app.static('/favicon.ico', './static/favicon.ico')
+app.static('/static', os.path.join(BASE_DIR, 'static'),
+           use_modified_since=True)
+app.static('/resources', os.path.join(BASE_DIR, 'blog/content/resources'),
+           use_modified_since=True)
+app.static('/favicon.ico', os.path.join(BASE_DIR, 'static/favicon.ico'))
 
 jinja = SanicJinja2(app)
 json_database.load()
-
-
-BLOG_SETTINGS = {
-    'title': 'sample.blog',
-    'subtitle': 'this blog is about something',
-    'blog_header': 'blog',
-}
 
 
 @app.route('/')
@@ -33,14 +37,7 @@ async def index(request):
 @app.route('/<year:int>/<month:int>/<day:int>/<slug>/')
 @jinja.template('post.html')
 async def post(request, year, month, day, slug):
-    content = content_cache.get(slug)
-    try:
-        post = [post for post in json_database.posts['posts'] if post['slug'] == slug][0]
-        print(post['date'], f"{year}/{month}/{day}")
-        if post['date'] != f"{year:04d}/{month:02d}/{day:02d}":
-            content = '<h3>Not Found. I am sorry.</h3>'
-    except IndexError:
-        content = '<h3>Not Found. I am sorry.</h3>'
+    content = content_cache.get(year, month, day, slug)
     return {
         'post': content,
         'settings': BLOG_SETTINGS
@@ -48,4 +45,4 @@ async def post(request, year, month, day, slug):
 
 
 if __name__ == '__main__':
-    app.run(host="0.0.0.0", port=8000)
+    app.run(host="0.0.0.0", port=8000)  # nosec

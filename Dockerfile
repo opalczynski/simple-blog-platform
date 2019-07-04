@@ -16,4 +16,7 @@ RUN pipenv install --deploy --system
 RUN apk del .build-deps
 
 ADD . /app/
-CMD ["python", "-m", "sanic", "app.app", "--host=0.0.0.0", "--port=8031", "--workers=3"]
+CMD ["python", "-m", "sanic", "app.app", "--host=0.0.0.0", "--port=8031", "--workers=2"]
+
+FROM application as ci
+RUN pipenv install --deploy --system --dev
