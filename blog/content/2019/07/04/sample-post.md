@@ -75,6 +75,9 @@ will produce:
 
 ![Some alt text](/resources/sample-post/sample-image.jpg)
 
+Sample photo thanks to: Photo by Photo by [Fancycrave.com](https://www.pexels.com/@fancycrave) from [Pexels](https://www.pexels.com/photo/green-ram-card-collection-825262/)
+
+
 ## code blocks
 
 As I am running technical block - the syntax highlighting is working using `higlight.js`.
